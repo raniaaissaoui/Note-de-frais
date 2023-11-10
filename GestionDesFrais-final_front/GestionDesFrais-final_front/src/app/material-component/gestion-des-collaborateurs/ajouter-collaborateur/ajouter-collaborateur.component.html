@@ -1,0 +1,80 @@
+
+<h3 color="primary"> <mat-icon>person</mat-icon>
+    Ajouter un Collaborateur</h3>
+
+<mat-card >
+<mat-card-content >
+    <form class="form-horizontal" name="form" [formGroup]="form" (ngSubmit)="onAdd()">
+        <mat-form-field class="exemple-form"   >
+          <mat-label>Code</mat-label>
+          <input type="text" 
+          matInput  
+          readonly
+          formControlName="code"
+          >
+        </mat-form-field> 
+        <mat-form-field class="exemple-form" >
+            <mat-label for="inputNom">nom</mat-label>
+            <input type="text" matInput   formControlName="nom"  placeholder="nom">
+            <mat-icon matSuffix> </mat-icon>
+            <mat-error *ngIf = "f.nom.errors?.required">
+                nom est <strong> obligatoire</strong>
+                </mat-error>
+                <mat-error *ngIf = "f.nom.errors?.pattern && f.nom.touched">
+                    Veuillez saisir un intutle valide
+            </mat-error> 
+                <mat-icon (click)="f.inputNom.setValue('')"  matSuffix style="color: #1f3a93;">clear</mat-icon>
+           </mat-form-field> 
+           <mat-form-field class="exemple-form" >
+            <mat-label for="inputPrenom">prenom</mat-label>
+            <input type="text" matInput   formControlName="prenom"  placeholder="prenom"   >
+            <mat-icon matSuffix> </mat-icon>
+            <mat-error *ngIf = "f.prenom.errors?.required">
+                prenom est <strong> obligatoire</strong>
+                </mat-error>
+                <mat-error *ngIf = "f.prenom.errors?.pattern && f.prenom.touched">
+                    Veuillez saisir un prenom valide
+            </mat-error> 
+                <mat-icon (click)="f.inputPrenom.setValue('')"  matSuffix style="color: #1f3a93;">clear</mat-icon>
+           </mat-form-field> 
+           <mat-form-field class="exemple-form" >
+               <mat-label for="inputBudget">login</mat-label>
+               <input type="text" matInput   formControlName="login"  placeholder="login" id="inputLogin"  >
+               <mat-icon matSuffix> </mat-icon>
+               <mat-error *ngIf = "f.login.errors?.required">
+                   budget est <strong> obligatoire</strong>
+                   </mat-error>
+                   <mat-error *ngIf = "f.login.errors?.pattern && f.login.touched">
+                       Veuillez saisir un login valide
+                   </mat-error> 
+                   <mat-icon (click)="f.login.setValue('')"  matSuffix style="color: #1f3a93;">clear</mat-icon>
+            </mat-form-field> 
+
+            <mat-form-field class="exemple-form" >
+                <mat-label for="inputBudget">Mot de passe</mat-label>
+                <input type="text" matInput   formControlName="mdp"  placeholder="mot de passe" id="inputLogin"  >
+                <mat-icon matSuffix> </mat-icon>
+                <mat-error *ngIf = "f.mdp.errors?.required">
+                    mdp est <strong> obligatoire</strong>
+                    </mat-error>
+                    <mat-error *ngIf = "f.mdp.errors?.pattern && f.mdp.touched">
+                        Veuillez saisir un mdp valide
+                    </mat-error> 
+                    <mat-icon (click)="f.mdp.setValue('')"  matSuffix style="color: #1f3a93;">clear</mat-icon>
+             </mat-form-field> 
+             <mat-slide-toggle formControlName="isRH">
+                Responsable RH
+            </mat-slide-toggle> 
+
+        
+        <br><br> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-raised-button type="submit" color="primary" [disabled]="!form.valid"> {{buttonText}} </button>
+
+
+
+
+    </form>
+
+
+</mat-card-content>
+</mat-card>

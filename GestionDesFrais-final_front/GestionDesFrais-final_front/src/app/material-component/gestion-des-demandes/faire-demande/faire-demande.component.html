@@ -1,0 +1,65 @@
+
+<h3 color="primary"> <mat-icon>person</mat-icon>
+    Faire demande</h3>
+
+<mat-card >
+<mat-card-content >
+    <form class="form-horizontal" name="form" [formGroup]="form" (ngSubmit)="onAdd()">
+        <mat-form-field class="exemple-form"   >
+          <mat-label>Code Projet</mat-label>
+          <input type="text" 
+          matInput  
+          readonly
+          formControlName="code"
+          >
+        </mat-form-field> 
+        <mat-form-field class="exemple-form" >
+            <mat-label for="inputinputintitule">intitule</mat-label>
+            <input type="text" matInput   formControlName="intitule"  placeholder="intitule "   >
+            <mat-icon matSuffix> </mat-icon>
+            <mat-error *ngIf = "f.intitule.errors?.required">
+                intitule est <strong> obligatoire</strong>
+                </mat-error>
+                <mat-error *ngIf = "f.intitule.errors?.pattern && f.intitule.touched">
+                    Veuillez saisir un intutle valide
+            </mat-error> 
+                <mat-icon (click)="f.inputintitule.setValue('')"  matSuffix style="color: #1f3a93;">clear</mat-icon>
+           </mat-form-field> 
+           <mat-form-field class="exemple-form" >
+               <mat-label for="inputmontant">Montant</mat-label>
+               <input type="text" matInput   formControlName="montant"  placeholder="montant" id="inputmontant"  >
+               <mat-icon matSuffix> </mat-icon>
+               <mat-error *ngIf = "f.montant.errors?.required">
+                   intitule est <strong> obligatoire</strong>
+                   </mat-error>
+                   <mat-error *ngIf = "f.montant.errors?.pattern && f.intitule.touched">
+                       Veuillez saisir un intitule valide
+                   </mat-error> 
+                   <mat-icon (click)="f.montant.setValue('')"  matSuffix style="color: #1f3a93;">clear</mat-icon>
+            </mat-form-field> 
+            <mat-form-field class="exemple-form" >
+                <mat-label for="inputmontant">Intitule de Note de Frais</mat-label>
+                <input type="text" matInput   formControlName="intituleNoteFrais"  placeholder="intituleNoteFrais" id="intituleNoteFrais"  >
+                <mat-icon matSuffix> </mat-icon>
+                <mat-error *ngIf = "f.intituleNoteFrais.errors?.required">
+                    intitule est <strong> obligatoire</strong>
+                    </mat-error>
+                    <mat-error *ngIf = "f.intituleNoteFrais.errors?.pattern && f.intitule.touched">
+                        Veuillez saisir un inputintitule valide
+                    </mat-error> 
+                    <mat-icon (click)="f.intituleNoteFrais.setValue('')"  matSuffix style="color: #1f3a93;">clear</mat-icon>
+             </mat-form-field> 
+            
+
+        
+        <br><br> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-raised-button type="submit" color="primary" [disabled]="!form.valid"> {{buttonText}} </button>
+
+
+
+
+    </form>
+
+
+</mat-card-content>
+</mat-card>

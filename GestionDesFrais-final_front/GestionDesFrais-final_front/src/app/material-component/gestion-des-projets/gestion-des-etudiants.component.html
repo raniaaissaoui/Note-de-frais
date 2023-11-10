@@ -1,0 +1,62 @@
+<div fxLayout="row">
+
+    <div fxFlex.gt-sm="100%">
+        <mat-card>
+            <mat-card-content>
+                <mat-card-title>LISTE DES PROJETS</mat-card-title><br>
+
+            <div style="justify-content: space-between;">
+                <mat-form-field class="search-form-field" floatLabel="never" style="width: 20%;">
+                    <input matInput [(ngModel)]= "searchKey" placeholder="Recherche" autocomplete="off" (keyup)="applyFilter()">
+                    <button mat-button matSuffix mat-icon-button aria-label="clear" 
+                    *ngIf="searchKey" (click)= "onSearchClear()">
+                        <mat-icon> close</mat-icon>
+                    </button>
+                </mat-form-field>
+                <button mat-raised-button color="primary" (click)="ajouter()">
+                    <mat-icon>card_membership</mat-icon>
+                </button>
+            </div>
+            
+                
+
+
+    <div class="mat-elevation-z8"> 
+        <mat-table [dataSource]='dataSource' matSort>
+        <ng-container matColumnDef="code"> 
+            <mat-header-cell *matHeaderCellDef mat-sort-header> <b> code </b> </mat-header-cell>
+            <mat-cell *matCellDef="let projet">{{projet.codeProjet}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="intitule" > 
+            <mat-header-cell *matHeaderCellDef mat-sort-header> <b> intitule </b> </mat-header-cell>
+            <mat-cell *matCellDef="let projet">{{projet.intitule}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="budget"> 
+            <mat-header-cell *matHeaderCellDef mat-sort-header> <b> budget </b></mat-header-cell>
+            <mat-cell *matCellDef="let projet">{{projet.budget}} </mat-cell>
+        </ng-container>
+
+            
+        <ng-container matColumnDef="actions"> 
+            <mat-header-cell *matHeaderCellDef> <b> Actions </b></mat-header-cell>
+            <mat-cell *matCellDef="let projet"> 
+                <button mat-icon-button color="warn">
+                    <mat-icon (click)="delete(projet)" aria-label="delete button icon">delete</mat-icon>
+                </button>
+                <button mat-icon-button color="warn">
+                    <mat-icon (click)="update(projet)" aria-label="update button icon">update</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef= "displayedColumns" > </mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"> </mat-row>
+        </mat-table>  
+        <mat-paginator [pageSizeOptions]="[5,10,25,100]" [pageSize]="10" showFirstLastButtons> </mat-paginator> 
+        </div>
+    
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

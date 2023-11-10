@@ -1,0 +1,12 @@
+<div>
+    <div class="content-container">
+      <mat-icon  id="close-icon" (click)="closeDialog()" >close</mat-icon>
+      <span *ngIf="this.data.type=='accorde'" class="content-span full-width">vous voulez approuver cette demande ?</span>
+      <span *ngIf="this.data.type=='refus'" style="color:red;" class="content-span full-width">vous voulez refuser cette demande ?</span>
+      
+    </div>
+    <button *ngIf="this.data.type=='accorde'"  mat-flat-button id="no-button" [mat-dialog-close]="false" (click)="accorder();" style="color:green">Accorder</button>
+    <button *ngIf="this.data.type=='refus'" mat-flat-button id="no-button" [mat-dialog-close]="false" (click)="refuser();" style="color:red; margin-top: 10px;">Refuser</button>
+
+</div>
+        

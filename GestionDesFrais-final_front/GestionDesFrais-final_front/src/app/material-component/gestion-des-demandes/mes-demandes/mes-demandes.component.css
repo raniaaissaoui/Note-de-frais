@@ -1,0 +1,6 @@
+.approved{
+    background-color: lightgreen;
+}
+.notApproved{
+    background-color: rgb(255, 100, 100);
+}

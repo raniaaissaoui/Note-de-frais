@@ -1,0 +1,54 @@
+
+    <h3 color="primary"> <mat-icon>card_membership</mat-icon>
+        Ajouter un Projet</h3>
+
+<mat-card >
+    <mat-card-content >
+        <form class="form-horizontal" name="form" [formGroup]="form" (ngSubmit)="onAdd()">
+            <mat-form-field class="exemple-form"   >
+              <mat-label>Code</mat-label>
+              <input type="text" 
+              matInput  
+              readonly
+              formControlName="code"
+              >
+            </mat-form-field> 
+            <mat-form-field class="exemple-form" >
+                <mat-label for="inputinputintitule">intitule</mat-label>
+                <input type="text" matInput   formControlName="intitule"  placeholder="intitule "   >
+                <mat-icon matSuffix> </mat-icon>
+                <mat-error *ngIf = "f.intitule.errors?.required">
+                    intitule est <strong> obligatoire</strong>
+                    </mat-error>
+                    <mat-error *ngIf = "f.intitule.errors?.pattern && f.intitule.touched">
+                        Veuillez saisir un intutle valide
+                </mat-error> 
+                    <mat-icon (click)="f.inputintitule.setValue('')"  matSuffix style="color: #1f3a93;">clear</mat-icon>
+               </mat-form-field> 
+               <mat-form-field class="exemple-form" >
+                   <mat-label for="inputBudget">Budget</mat-label>
+                   <input type="text" matInput   formControlName="budget"  placeholder="Budget" id="inputBudget"  >
+                   <mat-icon matSuffix> </mat-icon>
+                   <mat-error *ngIf = "f.budget.errors?.required">
+                       budget est <strong> obligatoire</strong>
+                       </mat-error>
+                       <mat-error *ngIf = "f.budget.errors?.pattern && f.intitule.touched">
+                           Veuillez saisir un inputintitule valide
+                       </mat-error> 
+                       <mat-icon (click)="f.budget.setValue('')"  matSuffix style="color: #1f3a93;">clear</mat-icon>
+                </mat-form-field> 
+
+                
+
+            
+            <br><br> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+            <button mat-raised-button type="submit" color="primary" [disabled]="!form.valid"> {{buttonText}} </button>
+
+
+
+
+        </form>
+
+
+    </mat-card-content>
+</mat-card>
